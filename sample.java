@@ -17,6 +17,16 @@ public class sample {
 				System.out.print(c);
 				i = fr.read();
 			}
+		}catch(IOException e) {
+			System.out.println("ファイルの実行中にエラーが発生しました。"+ e.getMessage());
+		}finally {
+			if(fr != null) {
+				try {
+					fr.close();
+				}catch(IOException e) {
+					System.out.println("ファイルを閉じるときにエラーが発生しました。" + e.getMessage());
+				}
+			}
 		}
 	}
 
